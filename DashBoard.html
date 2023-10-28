@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard de Clima</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .dashboard {
+            width: 50%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+        
+        .section {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .weather-info {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .date-time {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .high-low {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="date-time" id="date-time">Fecha y Hora: Cargando...</div>
+
+        <div class="section">
+            <div class="section-title">Información del Tiempo</div>
+            <div class="weather-info" id="temperature">Cargando...</div>
+            <div class="high-low" id="high-low">Altas: Cargando... / Bajas: Cargando...</div>
+            <div class="weather-info" id="description">Cargando...</div>
+            <div class="weather-info" id="humidity">Cargando...</div>
+            <div class="weather-info" id="wind">Cargando...</div>
+            <div class="weather-info" id="visibility">Cargando...</div>
+            <div class="weather-info" id="sunrise">Cargando...</div>
+            <div class="weather-info" id="sunset">Cargando...</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Pronóstico de 5 Días</div>
+            <div id="forecast">Cargando...</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Calidad del Aire</div>
+            <div class="weather-info" id="air-quality">Cargando...</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Estado del Viento</div>
+            <div class="weather-info" id="wind-status">Cargando...</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Índice UV</div>
+            <div class="weather-info" id="uv-index">Cargando...</div>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar la fecha y hora actual
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById("date-time");
+            const now = new Date();
+            const dateStr = now.toLocaleDateString();
+            const timeStr = now.toLocaleTimeString();
+            dateTimeElement.innerText = `Fecha y Hora: ${dateStr} ${timeStr}`;
+        }
+
+        // Actualizar la fecha y hora cada segundo
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // Llamar a la función inicialmente
+
+        // Simulación de datos del clima (incluyendo altas y bajas)
+        setTimeout(function() {
+            document.getElementById("temperature").innerText = "Temperatura: 25°C";
+            document.getElementById("high-low").innerText = "Altas: 30°C / Bajas: 20°C"; // Ejemplo de altas y bajas
+            document.getElementById("description").innerText = "Pronóstico: Soleado";
+            document.getElementById("humidity").innerText = "Humedad: 50%";
+            document.getElementById("wind").innerText = "Viento: 10 km/h";
+            document.getElementById("visibility").innerText = "Visibilidad: 10 km";
+            document.getElementById("sunrise").innerText = "Amanecer: 06:30 AM";
+            document.getElementById("sunset").innerText = "Atardecer: 06:30 PM";
+            // Simulación de datos del pronóstico, calidad del aire, estado del viento, índice UV, etc.
+        }, 2000); // Simular una demora en la obtención de datos
+    </script>
+</body>
+
+</html>
